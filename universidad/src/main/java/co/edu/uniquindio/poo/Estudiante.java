@@ -130,9 +130,7 @@ public class Estudiante {
                 + ", " + nota2 + ", " + nota3 + ", " + nota4 + ", " + nota5+" la definitiva de notas es: "+calcularDefinitiva();
     }
 
-    public static void mostrarMensaje (String mensaje){
-        System.out.println(mensaje);
-    }
+    
 
     public double calcularDefinitiva(){
         double definitiva= (nota1+nota2+nota3+nota4+nota5)/5;
