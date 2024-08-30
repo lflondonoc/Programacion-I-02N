@@ -5,7 +5,7 @@ public class Profesor {
     private String numeroIdentificacion;
 
     public Profesor(String nombre, String numeroIdentificacion){
-        this.nombre=nombre;
+        this.nombre= nombre;
         this.numeroIdentificacion=numeroIdentificacion;
     }
 
@@ -29,5 +29,4 @@ public class Profesor {
     public String toString() {
         return nombre;
     }
-    
 }

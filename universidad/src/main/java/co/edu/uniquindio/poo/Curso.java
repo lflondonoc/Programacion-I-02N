@@ -4,22 +4,14 @@ import java.util.LinkedList;
 
 public class Curso {
     private String nombre;
-    private Profesor profesor;
     private LinkedList<Estudiante> estudiantes;
+    private Profesor profesor;
 
     public Curso(String nombre, Profesor profesor){
-        this.nombre= nombre;
-        this.profesor= profesor;
+        this.nombre=nombre;
+        this.profesor=profesor;
         estudiantes= new LinkedList<>();
-        
-    }
 
-    public Profesor getProfesor() {
-        return profesor;
-    }
-
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
     }
 
     public String getNombre() {
@@ -30,15 +22,6 @@ public class Curso {
         this.nombre = nombre;
     }
 
-    @Override
-    public String toString() {
-        return "El nombre del curso es " + nombre + " el profesor que lo dicta es "+profesor+" y los esudiantes que están registrados son: \n\n" + estudiantes;
-    }
-
-    public void agregarEstudiante (Estudiante estudiante){
-        estudiantes.add(estudiante);
-    }
-
     public LinkedList<Estudiante> getEstudiantes() {
         return estudiantes;
     }
@@ -47,7 +30,59 @@ public class Curso {
         this.estudiantes = estudiantes;
     }
 
+    @Override
+    public String toString() {
+        return "El nombre del curso es: " + nombre + "y el profesor a cargo es: "+profesor +"y los estudiantes que pertenecen al curso son: \n\n" + estudiantes;
+    }
+
     public static void mostrarMensaje (String mensaje){
         System.out.println(mensaje);
     }
+
+    public Profesor getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
+    public void agregarEstudiante (Estudiante estudiante){
+        if (validarNumeroIdentificacion(estudiante.getNumeroIdentificacion())){
+            mostrarMensaje("Error, el número de identificación"+estudiante.getNumeroIdentificacion()+ "ya esta creado");
+        }else{
+            estudiantes.add(estudiante);
+        }
+    }
+
+    public boolean validarNumeroIdentificacion (String numeroIdentificacion){
+        boolean numeroIdentificacionRepetido= false;
+        for (Estudiante estudiante: estudiantes){
+            if (estudiante.getNumeroIdentificacion().equals(numeroIdentificacion)){
+                numeroIdentificacionRepetido=true;
+            }
+        }
+        return numeroIdentificacionRepetido;
+    }
+
+    public void eliminarEstudiante (String numeroIdentificacion){
+        for (Estudiante estudiante: estudiantes){
+            if (estudiante.getNumeroIdentificacion().equals(numeroIdentificacion)){
+                estudiantes.remove(estudiante);
+                break;
+            }
+        }
+    }
+
+    public void actualizarEstudiante (String correo, String telefono, String numeroIdentificacion){
+        for (Estudiante estudiante: estudiantes){
+            if (estudiante.getNumeroIdentificacion().equals(numeroIdentificacion)){
+                estudiante.setCorreo(correo);
+                estudiante.setTelefono(telefono);
+                break;
+            }
+        }
+
+    }
+
 }

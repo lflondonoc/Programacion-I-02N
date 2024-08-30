@@ -13,8 +13,8 @@ public class Estudiante {
     private double nota4;
     private double nota5;
 
-    public Estudiante (String numeroIdentificacion, String nombres,String apellidos, String correo, String telefono, int edad, double nota1, double nota2, double nota3, double nota4, double nota5){
-        this.numeroIdentificacion= numeroIdentificacion;
+    public Estudiante(String numeroIdentificacion, String nombres, String apellidos, String correo, String telefono, int edad, double nota1, double nota2, double nota3, double nota4, double nota5){
+        this.numeroIdentificacion=numeroIdentificacion;
         this.nombres=nombres;
         this.apellidos=apellidos;
         this.correo=correo;
@@ -32,6 +32,7 @@ public class Estudiante {
         assert !telefono.isBlank();
         assert edad>0;
         assert correo.contains("@");
+
 
     }
 
@@ -125,16 +126,15 @@ public class Estudiante {
 
     @Override
     public String toString() {
-        return "El estudiante es \n - " + numeroIdentificacion + ", " + nombres + ", "
+        return "El estudiante es:\n - " + numeroIdentificacion + ", " + nombres + ", "
                 + apellidos + ", " + correo + ", " + telefono + ", " + edad + ", " + nota1
-                + ", " + nota2 + ", " + nota3 + ", " + nota4 + ", " + nota5+" la definitiva de notas es: "+calcularDefinitiva();
+                + ", " + nota2 + ", " + nota3 + ", " + nota4 + ", " + nota5+" su definitiva es de: "+calcularDefinitiva(nota1, nota2, nota3, nota4, nota5);
     }
-
     
 
-    public double calcularDefinitiva(){
+    public double calcularDefinitiva (double nota1, double nota2, double nota3, double nota4, double nota5){
         double definitiva= (nota1+nota2+nota3+nota4+nota5)/5;
         return Math.round(definitiva*10.0)/10.0;
     }
-
+    
 }
