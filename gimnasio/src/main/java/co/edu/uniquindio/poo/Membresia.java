@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo;
 
-public enum TipoMembresia {
+public enum Membresia {
     MENSUAL,
     TRIMESTRAL,
     ANUAL

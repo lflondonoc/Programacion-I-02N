@@ -4,27 +4,28 @@ public class Miembro {
     private String nombre;
     private int edad;
     private String genero;
-    private TipoMembresia tipoMembresia;
-    private Entrenador entrenador;
+    private String cedula;
+    private Membresia membresia;
 
-    public Miembro(String nombre,int edad, String genero, TipoMembresia tipoMembresia, Entrenador entrenador){
-        this.nombre=nombre;
-        this.edad=edad;
-        this.genero=genero;
-        this.tipoMembresia=tipoMembresia;
-        this.entrenador= entrenador;
+    
+    public Miembro(String nombre, int edad, String genero, String cedula, Membresia membresia) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.genero = genero;
+        this.cedula = cedula;
+        this.membresia = membresia;
     }
 
+    
+    @Override
+    public String toString() {
+        return "Miembro [nombre=" + nombre + ", edad=" + edad + ", genero=" + genero + ", cedula=" + cedula
+                + ", membresia=" + membresia + "]";
+    }
+
+    
     public String getNombre() {
         return nombre;
-    }
-
-    public TipoMembresia getTipoMembresia() {
-        return tipoMembresia;
-    }
-
-    public void setTipoMembresia(TipoMembresia tipoMembresia) {
-        this.tipoMembresia = tipoMembresia;
     }
 
     public void setNombre(String nombre) {
@@ -47,17 +48,20 @@ public class Miembro {
         this.genero = genero;
     }
 
-    @Override
-    public String toString() {
-        return "Miembro [nombre=" + nombre + ", edad=" + edad + ", genero=" + genero + ", tipoMembresia="
-                + tipoMembresia + ", entrenador=" + entrenador + "]";
+    public String getCedula() {
+        return cedula;
     }
 
-    public Entrenador getEntrenador() {
-        return entrenador;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
-    public void setEntrenador(Entrenador entrenador) {
-        this.entrenador = entrenador;
+    public Membresia getMembresia() {
+        return membresia;
     }
+
+    public void setMembresia(Membresia membresia) {
+        this.membresia = membresia;
+    }
+
 }

@@ -7,14 +7,19 @@ public class Entrenador {
     private String especialidad;
     private String telefono;
     private String correo;
-    private LinkedList<Miembro> listaMiembros;
+    private LinkedList<Miembro> miembros;
 
-    public Entrenador (String nombre, String especialidad, String telefono, String correo){
-        this.nombre=nombre;
-        this.especialidad=especialidad;
-        this.telefono=telefono;
-        this.correo=correo;
-        listaMiembros= new LinkedList<>();
+    public Entrenador(String nombre, String especialidad, String telefono, String correo) {
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+        this.telefono = telefono;
+        this.correo = correo;
+        miembros = new LinkedList<>();
+    }
+
+    
+    public void agregarMiembroAEntrenador(Miembro miembro) {
+        miembros.add(miembro);
     }
 
     public String getNombre() {
@@ -33,14 +38,6 @@ public class Entrenador {
         this.especialidad = especialidad;
     }
 
-    public LinkedList<Miembro> getListaMiembros() {
-        return listaMiembros;
-    }
-
-    public void setListaMiembros(LinkedList<Miembro> listaMiembros) {
-        this.listaMiembros = listaMiembros;
-    }
-
     public String getTelefono() {
         return telefono;
     }
@@ -57,12 +54,20 @@ public class Entrenador {
         this.correo = correo;
     }
 
+    public LinkedList<Miembro> getMiembros() {
+        return miembros;
+    }
+
+    public void setMiembros(LinkedList<Miembro> miembros) {
+        this.miembros = miembros;
+    }
+
     @Override
     public String toString() {
         return "Entrenador [nombre=" + nombre + ", especialidad=" + especialidad + ", telefono=" + telefono
-                + ", correo=" + correo + ", listaMiembros=" + listaMiembros + "]";
+                + ", correo=" + correo + ", miembros=" + miembros + "]";
     }
-    public void agregarMiembros (Miembro miembro){
-        listaMiembros.add(miembro);
-    }
+
+    
+
 }

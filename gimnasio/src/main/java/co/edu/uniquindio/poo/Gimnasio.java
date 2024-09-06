@@ -9,11 +9,23 @@ public class Gimnasio {
     private LinkedList<Miembro> miembros;
     private LinkedList<Entrenador> entrenadores;
 
-    public Gimnasio(String nombre, LocalDate fechaInscripcion){
-        this.nombre=nombre;
-        this.fechaInscripcion=fechaInscripcion;
-        miembros= new LinkedList<>();
-        entrenadores= new LinkedList<>();
+    public Gimnasio(String nombre, LocalDate fechaInscripcion) {
+        this.nombre = nombre;
+        this.fechaInscripcion= fechaInscripcion;
+        miembros = new LinkedList<>();
+        entrenadores = new LinkedList<>();
+    }
+
+    public void agregarMiembro(Miembro miembro) {
+        miembros.add(miembro);
+    }
+
+    public void agregarEntrenador(Entrenador entrenador) {
+        entrenadores.add(entrenador);
+    }
+
+    public static void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
     }
 
     public String getNombre() {
@@ -53,15 +65,44 @@ public class Gimnasio {
         return "Gimnasio [nombre=" + nombre + ", fechaInscripcion=" + fechaInscripcion + ", miembros=" + miembros
                 + ", entrenadores=" + entrenadores + "]";
     }
-    public void agregarMiembro (Miembro miembro){
-        miembros.add(miembro);
-    }
-    public void agregarEntrenador (Entrenador entrenador){
-        entrenadores.add(entrenador);
-    }    
-    public static void mostrarMensaje(String mensaje){
-        System.out.println(mensaje);
-    }
 
     
+    // --------------------------------------------------------------
+    // Pilas metodos nuevos del taller
+
+    /**
+     * Metodo que muestra los nombres de los miembros de la lista en orden inverso
+     */
+    public void listaNombresInverso() {
+        for (int i = miembros.size() - 1; i >= 0; i--) {
+            Miembro miembro = miembros.get(i);
+            mostrarMensaje(miembro.getNombre());
+        }
+    }
+
+    /**
+     * Metodo que crea una lista de miembros que son menores de 18 años.
+     * 
+     * @return Una lista de objetos cuya edad es menor de 18 años.
+     */
+    public LinkedList<Miembro> miembrosMenoresEdad() {
+        LinkedList<Miembro> menores = new LinkedList<>();
+        for (Miembro miembro : miembros) {
+            if (miembro.getEdad() < 18) {
+                menores.add(miembro);
+            }
+        }
+        return menores;
+    }
+    // --------------------------------------------------------------
+
+
+
+    // --------------------Completar los metodos---------------------
+
+    
+
+    // --------------------Completar---------------------------------
+
+
 }
