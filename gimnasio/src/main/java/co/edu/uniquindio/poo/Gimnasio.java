@@ -156,4 +156,52 @@ public class Gimnasio {
         entrenadores.add(entrenador);
     }
 
+    //-------------------------Parcial 1--------------------
+
+    //Método que permita contar la cantidad de miembros que tienen una membresía anual y son mayores de edad.
+    public int contarMiembrosMembresiaAnualMayoresEdad() {
+        int contadorAnual = 0;
+        for (Miembro miembro : miembros) {
+            if (miembro.getMembresia() == Membresia.ANUAL && miembro.getEdad() >= 18) {
+                contadorAnual++;
+            }
+        }
+        return contadorAnual;
+    }
+    //Método que agregue a una lista los nombres de aquellos entrenadores cuyo número de teléfono, al sumar los dígitos, sea igual a 30
+    public LinkedList<Entrenador> agregarEntrenadorConSumaTelefono() {
+        LinkedList<Entrenador> entrenadorConSuma = new LinkedList<>();
+        for (Entrenador entrenador : entrenadores) {
+            int telefono = entrenador.getTelefono();
+            int sumaDigitos = 0;
+
+            for (int i = telefono; i > 0; i /= 10) {
+                sumaDigitos += i % 10;
+            }
+
+            if (sumaDigitos == 30) {
+                entrenadorConSuma.add(entrenador);
+            }
+        }
+        return entrenadorConSuma;
+    }
+
+    //Método que permita invertir el nombre de cada uno de los miembros de la lista de miembros que son menores de edad. 
+    public void invertirNombresMenoresEdad() {
+        for (Miembro miembro : miembros) {
+            if (miembro.getEdad() < 18) {
+                String nombre = miembro.getNombre();
+                String nombreInvertido = "";
+
+                for (int i = nombre.length() - 1; i >= 0; i--) {
+                    nombreInvertido += nombre.charAt(i);
+                }
+
+                miembro.setNombre(nombreInvertido);
+            }
+        }
+    }
+
+    //-------------------------Parcial 1--------------------
+
 }

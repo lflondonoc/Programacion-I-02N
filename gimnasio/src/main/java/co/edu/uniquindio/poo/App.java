@@ -18,7 +18,7 @@ public class App {
         Miembro miembro2 = new Miembro("Mario", 20, "Masculino", "1235", Membresia.ANUAL);
 
         //creación miembros
-        Entrenador entrenador = new Entrenador("Jorge", "Pesas", "1234", "jorge@gmail.com");
+        Entrenador entrenador = new Entrenador("Jorge", "Pesas", 1234, "jorge@gmail.com");
 
         // Se agregan los miembros al gimnasio
         gimnasio.agregarMiembro(miembro1);
