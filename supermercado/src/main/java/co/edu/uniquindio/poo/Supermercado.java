@@ -1,39 +1,48 @@
 package co.edu.uniquindio.poo;
 
+import java.util.LinkedList;
 
 public class Supermercado {
     private String nombre;
-    private String id;
-    private String direccion;
-    
-    public Supermercado(String nombre, String id, String direccion) {
+    LinkedList<Cliente> clientes;
+    LinkedList<Empleado> empleados;
+    LinkedList<Producto> productos;
+
+    public Supermercado(String nombre) {
         this.nombre = nombre;
-        this.id = id;
-        this.direccion = direccion;
+        clientes= new LinkedList<>();
+        empleados= new LinkedList<>();
+        productos= new LinkedList<>();
     }
+
     public String getNombre() {
         return nombre;
     }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public String getId() {
-        return id;
-    }
-    public void setId(String id) {
-        this.id = id;
-    }
-    public String getDireccion() {
-        return direccion;
-    }
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
+
     @Override
     public String toString() {
-        return "Supermercado: " + nombre + ", id=" + id + ", direccion=" + direccion + "]";
+        return "Supermercao:" + nombre + ", clientes: " + clientes + ", trabajadores: " + empleados + ", productos: "
+                + productos;
     }
 
-    
+    public void agregarCliente (Cliente cliente){
+        clientes.add(cliente);
+    }
 
+    public void agregarEmpleado (Empleado empleado){
+        empleados.add(empleado);
+    }
+
+    public void agregarProducto (Producto producto){
+        productos.add(producto);
+    }
+    
+    public static void mostrarMensaje(String mensaje){
+        System.out.println(mensaje);
+    }
+    
 }

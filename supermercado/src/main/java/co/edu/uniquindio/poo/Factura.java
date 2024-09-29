@@ -4,49 +4,63 @@ import java.util.LinkedList;
 
 public class Factura {
     private String id;
-    private String fecha;
     private double total;
     LinkedList<DetalleFactura> detalleFacturas;
 
-    public Factura(String id, String fecha) {
+    
+    public Factura(String id) {
         this.id = id;
-        this.fecha = fecha;
         detalleFacturas= new LinkedList<>();
         this.total = calcularTotal();
     }
+
+    
     public String getId() {
         return id;
     }
+
+
     public void setId(String id) {
         this.id = id;
     }
-    public LinkedList<DetalleFactura> getDetalleFacturas() {
-        return detalleFacturas;
-    }
-    public void setDetalleFacturas(LinkedList<DetalleFactura> detalleFacturas) {
-        this.detalleFacturas = detalleFacturas;
-    }
-    public String getFecha() {
-        return fecha;
-    }
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
+
+
     public double getTotal() {
         return total;
     }
+
+
     public void setTotal(double total) {
         this.total = total;
     }
+
+
+    public LinkedList<DetalleFactura> getDetalleFacturas() {
+        return detalleFacturas;
+    }
+
+
+    public void setDetalleFacturas(LinkedList<DetalleFactura> detalleFacturas) {
+        this.detalleFacturas = detalleFacturas;
+    }
+
+
     @Override
     public String toString() {
-        return "Factura: " + id + ", fecha=" + fecha + ", total=" + total;
+        return "Factura: " + id + ", total=" + total + ", detalleFacturas: " + detalleFacturas;
     }
-    public double calcularTotal(){
-        double total=0;
-        for (DetalleFactura detalleFactura: detalleFacturas){
+
+    public void agregarDetalleFactura(DetalleFactura detalleFactura) {
+        detalleFacturas.add(detalleFactura);
+    }
+
+    public double calcularTotal() {
+        total = 0;  
+        for (DetalleFactura detalleFactura : detalleFacturas) {
             total += detalleFactura.getSubtotal();
         }
         return total;
     }
+
+    
 }
